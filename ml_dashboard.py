@@ -240,22 +240,7 @@ if page == "Model Training":
                 st.write(f"### R-Squared: {r2:.2f}")
                 st.write(f"### Adjusted R-Squared: {adj_r2:.2f}")
 
-            import shap
-
-            # Ensure the SHAP visualizer is compatible with the environment
-            if problem_type == "Regression":
-                st.write("### SHAP Values for Regression")
-
-                # Create a SHAP explainer using the trained model
-                explainer = shap.Explainer(st.session_state.model, X_train)
-
-                # Compute SHAP values for the test set
-                shap_values = explainer(X_test)
-
-                # Plot the SHAP values summary
-                fig, ax = plt.subplots()
-                shap.summary_plot(shap_values, X_test, plot_type="bar", show=False)
-                st.pyplot(fig)
+            
 
     # Add your model training functionalities
 
